@@ -1,28 +1,61 @@
 /* src/App.css */
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
 
+/* Reset Styles */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif;
   background-color: #f9f9f9;
   color: #333;
   line-height: 1.6;
 }
 
-/* Navbar */
+/* Ensuring full page height and footer sticks to bottom */
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1; /* Pushes footer to the bottom */
+}
+
+/* Navbar Styling */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, #1e3c72, #2a5298);
+  background: #1e3c72;
   padding: 1rem 2rem;
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-bottom: 3px solid #ffcc00;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  height: 50px; /* Adjust the height as needed */
+  margin-right: 10px;
+}
+
+.brand-name {
+  font-size: 1.5rem;
+  font-weight: bold;
 }
 
 .navbar .logo {
@@ -49,37 +82,102 @@ body {
   color: #ffcc00;
 }
 
-/* Sections */
-section {
-  padding: 4rem 2rem;
-  text-align: center;
-}
-
-/* Home Section */
+/* Home Section (Hero) */
 .home {
-  background: url('./assets/images/hero-bg.svg') no-repeat center center/cover;
+  background: url('./assets/images/hero-bg.svg') no-repeat center center;
+  background-size: cover;
   color: #fff;
-  min-height: 70vh;
+  min-height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
-.home h1 {
+.hero-logo {
+  width: 120px; /* Adjust size */
+  margin-bottom: 1rem; /* Adds space below logo */
+}
+
+.hero-content h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
 }
 
-.home p {
+.hero-content p {
   font-size: 1.2rem;
+  max-width: 600px;
+  margin: 1rem auto 2rem;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #2a5298;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: #1e3c72;
+}
+
+.btn.secondary {
+  background-color: #fff;
+  color: #2a5298;
+  border: 2px solid #2a5298;
+}
+
+.btn.secondary:hover {
+  background-color: #f1f1f1;
+}
+
+/* Data Science & AI Highlights Section */
+.data-highlights {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 3rem;
+  flex-wrap: wrap;
+}
+
+.highlight {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  min-width: 150px;
+}
+
+.highlight h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.highlight p {
+  font-size: 1rem;
 }
 
 /* About Section */
 .about {
   background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
   border-top: 1px solid #e0e0e0;
+  margin-bottom: 7rem; /* Adds extra space below */
 }
 
 .about h2 {
@@ -98,6 +196,8 @@ section {
 /* Projects Section */
 .projects {
   background-color: #f9f9f9;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
 .projects h2 {
@@ -151,6 +251,8 @@ section {
 /* Contact Section */
 .contact {
   background-color: #fff;
+  padding: 4rem 2rem;
+  text-align: center;
 }
 
 .contact h2 {
@@ -204,4 +306,57 @@ section {
   background-color: #1e3c72;
   color: #fff;
   text-align: center;
+  margin-bottom: 1rem;
+}
+
+.footer-logo {
+  height: 40px;
+  margin-bottom: 10px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 768px) {
+  .home {
+    min-height: 60vh;
+    padding: 2rem;
+  }
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  .hero-content p {
+    font-size: 1rem;
+  }
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar .nav-links {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  .navbar .nav-links li {
+    margin: 0.5rem 0;
+  }
+  .data-highlights {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .home {
+    min-height: 50vh;
+    padding: 1.5rem;
+  }
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+  .about h2,
+  .projects h2,
+  .contact h2 {
+    font-size: 2rem;
+  }
 }
