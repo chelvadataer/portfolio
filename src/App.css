@@ -1,0 +1,41 @@
+/* src/App.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #333;
+}
+
+.navbar .logo {
+  color: #fff;
+  font-size: 1.5em;
+}
+
+.navbar .nav-links {
+  list-style: none;
+  display: flex;
+}
+
+.navbar .nav-links li {
+  margin: 0 1em;
+}
+
+.navbar .nav-links li a {
+  color: #fff;
+  text-decoration: none;
+}
+
+section {
+  padding: 2em;
+}
+
+footer.footer {
+  text-align: center;
+  padding: 1em;
+  background-color: #f1f1f1;
+}
